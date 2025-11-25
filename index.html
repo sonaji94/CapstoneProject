@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smart Pilgrimage Crowd Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <span>TempleSafe</span> Pilot
+    </div>
+    <div class="nav-links">
+      <a href="#problem">Problem</a>
+      <a href="#features">Features</a>
+      <a href="#live">Live Status</a>
+      <a href="#admin">Admin</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero" id="top">
+      <div>
+        <span class="badge">Temple &amp; Pilgrimage Crowd Management</span>
+        <h1>
+          Smart Crowd Control for
+          <span>Somnath, Dwarka, Ambaji &amp; Pavagadh</span>
+        </h1>
+        <p>
+          A web-based platform that helps temple authorities continuously
+          monitor crowd density, manage queues, and keep pilgrims safe
+          during peak seasons and festivals.
+        </p>
+        <ul class="hero-list">
+          <li>Real-time crowd status for key temple zones</li>
+          <li>Digital token &amp; time-slot based darshan</li>
+          <li>Admin alerts for overcrowding and emergencies</li>
+        </ul>
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="scrollToSection('live')">
+            View Live Temple Status
+          </button>
+          <button class="btn btn-outline" onclick="scrollToSection('features')">
+            Explore Features
+          </button>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h3>Pilgrimage Snapshot (Sample Data)</h3>
+        <small>Demo view – values can be connected to real sensors / cameras later.</small>
+
+        <div class="temple-badges">
+          <span>Somnath</span>
+          <span>Dwarka</span>
+          <span>Ambaji</span>
+          <span>Pavagadh</span>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="metric">
+            <div class="metric-label">Total pilgrims</div>
+            <div class="metric-value" id="metric-total">–</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Avg. occupancy</div>
+            <div class="metric-value" id="metric-avg">–</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">High-risk zones</div>
+            <div class="metric-value" id="metric-high">–</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ========== PROBLEM SECTION ========== -->
+    <section class="section" id="problem">
+      <div class="section-header">
+        <div>
+          <h2>Problem Statement</h2>
+        </div>
+        <p>
+          Major temples like Somnath, Dwarka, Ambaji, and Pavagadh face sudden
+          influx of pilgrims, especially during weekends, festivals and
+          auspicious days. Manual crowd handling often leads to long queues,
+          confusion, and safety risks. Authorities need a digital system that
+          can give early warning about congestion and help them manage crowd
+          flow more scientifically.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== FEATURES SECTION ========== -->
+    <section class="section" id="features">
+      <div class="section-header">
+        <h2>Core Features</h2>
+        <p>
+          The proposed solution combines AI-based monitoring, IoT sensors and a
+          simple web + mobile interface to support both devotees and temple
+          management.
+        </p>
+      </div>
+
+      <div class="cards-grid">
+        <article class="card">
+          <small>For Devotees</small>
+          <h3>Real-Time Crowd View</h3>
+          <p>
+            Check current crowd level at each temple, peak timings, and
+            suggested low-rush slots before starting the yatra.
+          </p>
+        </article>
+
+        <article class="card">
+          <small>For Devotees</small>
+          <h3>Digital Token &amp; Slot Booking</h3>
+          <p>
+            Book darshan slots, receive a digital token, and get guidance on
+            expected waiting time to avoid unnecessary standing in queues.
+          </p>
+        </article>
+
+        <article class="card">
+          <small>For Devotees</small>
+          <h3>Navigation &amp; Facilities Map</h3>
+          <p>
+            In-campus map showing entry/exit gates, prasad counters, drinking
+            water, cloak room, medical room, and emergency help points.
+          </p>
+        </article>
+
+        <article class="card">
+          <small>For Admin</small>
+          <h3>AI Crowd Analytics</h3>
+          <p>
+            Camera feeds and sensors converted into heatmaps and occupancy
+            percentages for different zones in the temple campus.
+          </p>
+        </article>
+
+        <article class="card">
+          <small>For Admin</small>
+          <h3>Alert &amp; Response Panel</h3>
+          <p>
+            Automatic alerts when a zone crosses safe capacity, along with
+            suggested actions such as redirecting queues or opening extra
+            gates.
+          </p>
+        </article>
+
+        <article class="card">
+          <small>For Admin</small>
+          <h3>Reports &amp; Insights</h3>
+          <p>
+            Historical data for daily footfall, peak hours and festival trends
+            to help plan future manpower and infrastructure.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========== LIVE STATUS SECTION ========== -->
+    <section class="section" id="live">
+      <div class="section-header">
+        <h2>Live Temple Crowd Status (Demo)</h2>
+        <p>
+          Sample data for Somnath, Dwarka, Ambaji and Pavagadh. In the actual
+          implementation this will be powered by real-time sensors / cameras
+          and backend APIs.
+        </p>
+      </div>
+
+      <div class="cards-grid" id="temple-cards">
+        <!-- Cards injected by JS -->
+      </div>
+    </section>
+
+    <!-- ========== ADMIN / DASHBOARD SECTION ========== -->
+    <section class="section" id="admin">
+      <div class="section-header">
+        <h2>Devotee View &amp; Admin Dashboard</h2>
+        <div class="view-toggle">
+          <button id="btn-devotee" class="active" onclick="setView('devotee')">
+            Devotee View
+          </button>
+          <button id="btn-admin" onclick="setView('admin')">
+            Admin View
+          </button>
+        </div>
+      </div>
+
+      <!-- DEVOTEE VIEW -->
+      <div id="devotee-view">
+        <div class="cards-grid">
+          <article class="card">
+            <h3>Plan Your Darshan</h3>
+            <p>
+              Choose a temple and see recommended low-rush time slots based on
+              current and predicted footfall.
+            </p>
+            <p style="margin-top:0.5rem;font-size:0.8rem;color:#666;">
+              (Static demo for now – connect with prediction API later.)
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Sample Token Details</h3>
+            <p>
+              Token ID: <strong>#TKSOM-1024</strong><br />
+              Temple: Somnath<br />
+              Slot: 10:30 AM – 11:00 AM<br />
+              Recommended reporting time: 10:15 AM
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Emergency Help</h3>
+            <p>
+              Emergency helpline numbers and on-campus help points can be
+              displayed here for each temple, along with live announcements.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <!-- ADMIN VIEW -->
+      <div id="admin-view" style="display:none;">
+        <div class="admin-layout">
+          <!-- LEFT: TABLE -->
+          <div>
+            <div class="filter-bar">
+              <span style="font-weight:600;">Live Zone Table</span>
+              <label>
+                Filter by crowd:
+                <select id="filter-crowd" onchange="renderTable()">
+                  <option value="all">All</option>
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                </select>
+              </label>
+            </div>
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Temple</th>
+                    <th>Zone</th>
+                    <th>Crowd</th>
+                    <th>Occupancy</th>
+                    <th>ETA Wait</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-table-body">
+                  <!-- Rows injected by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- RIGHT: NOTES / ALERTS -->
+          <aside class="notes-card">
+            <h3 style="font-size:0.95rem;margin-bottom:0.3rem;">
+              System Alerts (Demo)
+            </h3>
+            <p style="font-size:0.8rem;color:#666;">
+              Generated automatically based on defined safe-capacity rules.
+            </p>
+            <ul id="alerts-list">
+              <!-- Alerts injected by JS -->
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
