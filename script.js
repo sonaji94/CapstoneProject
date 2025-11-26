@@ -253,3 +253,61 @@ function scrollToSection(id) {
 updateMetrics();
 renderTempleCards();
 renderTable();
+
+// ---------- REGISTRATION FORM HANDLING ----------
+// Populate temple select from templeData
+const templeSelect = document.getElementById("templeSelect");
+if (templeSelect && Array.isArray(templeData)) {
+  templeData.forEach((t) => {
+    const opt = document.createElement("option");
+    opt.value = t.name;
+    opt.textContent = `${t.name} — ${t.city}`;
+    templeSelect.appendChild(opt);
+  });
+}
+
+const registerForm = document.getElementById("register-form");
+const formMessage = document.getElementById("form-message");
+if (registerForm) {
+  registerForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // basic validation
+    const fullName = document.getElementById("fullName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    const agree = document.getElementById("agree").checked;
+
+    if (!fullName || !email || !phone || !password || !confirmPassword) {
+      showFormMessage("Please fill in all required fields.", "error");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      showFormMessage("Passwords do not match.", "error");
+      return;
+    }
+
+    if (!agree) {
+      showFormMessage("Please accept the terms to continue.", "error");
+      return;
+    }
+
+    // success (in a real app we'd POST to a server)
+    showFormMessage("Registration successful — token will be sent shortly.", "success");
+    // clear form after short delay so user sees message
+    setTimeout(() => registerForm.reset(), 700);
+  });
+
+  const resetBtn = document.getElementById("reset-btn");
+  if (resetBtn) resetBtn.addEventListener("click", () => registerForm.reset());
+}
+
+function showFormMessage(msg, type) {
+  if (!formMessage) return;
+  formMessage.textContent = msg;
+  formMessage.classList.remove("success", "error");
+  formMessage.classList.add(type === "success" ? "success" : "error");
+}

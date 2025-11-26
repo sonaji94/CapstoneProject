@@ -18,6 +18,7 @@
       <a href="#features">Features</a>
       <a href="#live">Live Status</a>
       <a href="#admin">Admin</a>
+      <a href="#register">Register</a>
     </div>
   </nav>
 
@@ -76,6 +77,68 @@
           </div>
         </div>
       </aside>
+    </section>
+
+    <!-- ========== REGISTRATION SECTION ========== -->
+    <section class="section form-section" id="register">
+      <div class="section-header">
+        <h2>Register for Darshan</h2>
+        <p>Register to receive a token, preferred slot and live updates.</p>
+      </div>
+
+      <div class="card register-card">
+        <form id="register-form" class="register-form" novalidate>
+          <div class="form-row">
+            <label for="fullName">Full name</label>
+            <input id="fullName" name="fullName" type="text" required placeholder="Your full name" />
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="you@example.com" />
+          </div>
+
+          <div class="form-row">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" inputmode="numeric" required placeholder="Mobile number" />
+          </div>
+
+          <div class="form-row">
+            <label for="templeSelect">Temple</label>
+            <select id="templeSelect" name="temple" required>
+              <option value="">Choose a temple</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="preferredDate">Preferred date</label>
+            <input id="preferredDate" name="preferredDate" type="date" />
+          </div>
+
+          <div class="form-row">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" required placeholder="Create a password" />
+          </div>
+
+          <div class="form-row">
+            <label for="confirmPassword">Confirm password</label>
+            <input id="confirmPassword" name="confirmPassword" type="password" required placeholder="Repeat password" />
+          </div>
+
+          <div class="form-row checkbox-row">
+            <label>
+              <input id="agree" name="agree" type="checkbox" required /> I agree to receive notifications and follow temple rules.
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="button" class="btn btn-outline" id="reset-btn">Reset</button>
+          </div>
+
+          <div id="form-message" class="form-message" aria-live="polite"></div>
+        </form>
+      </div>
     </section>
 
     <!-- ========== PROBLEM SECTION ========== -->
